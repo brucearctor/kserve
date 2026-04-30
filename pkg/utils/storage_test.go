@@ -19,12 +19,13 @@ package utils
 import (
 	"testing"
 
-	"github.com/kserve/kserve/pkg/constants"
-	"github.com/kserve/kserve/pkg/types"
 	"github.com/onsi/gomega"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	corev1 "k8s.io/api/core/v1"
+
+	"github.com/kserve/kserve/pkg/constants"
+	"github.com/kserve/kserve/pkg/types"
 )
 
 func TestFindCommonParentPath(t *testing.T) {
@@ -424,7 +425,7 @@ func TestConfigureModelcarToContainerMultipleOCI(t *testing.T) {
 			},
 		}
 
-		for i := 0; i < 2; i++ {
+		for range 2 {
 			err := ConfigureModelcarToContainer(
 				"oci://registry.example.com/model:v1",
 				podSpec,
